@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+  <div class="row">
+    <div class="panel-heading">
+      <h2 style="text-align: center; font-family: 'Oswald', sans-serif;color: #1977cc; margin-top: 3%; margin-bottom: 3%;">My Request History</h2>
+    </div>
+    <div class="col">
+      <table class="table" >
+        <thead>
+          <tr>
+            <th>Patient Name</th>
+            <th>Patient Gender</th>
+            <th>Age</th>
+            <th>Disease</th>
+            <th>Blood Group</th>
+            <th>Required Units</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+       
+        <tbody>
+          <tr *ngFor="let history of requests | async">
+            <td>{{history.name}}</td>
+            <td>{{history.gender}}</td>
+            <td>{{history.age}} years</td>
+            <td style="color: navy;">{{history.disease}}</td>
+            <td style="color: red; font-size: 25px;">{{history.bloodgroup}}</td>
+            <td>{{history.units}} units</td>
+            <td>
+                <div *ngIf="history.status === 'accept' && loggedUser !== 'admin@gmail.com'" class="accepted">Acknowledged - {{history.donormail}}</div>
+                <div *ngIf="history.status === 'false' && loggedUser !== 'admin@gmail.com'" class="pending">Pending</div>
+                <div *ngIf="history.status === 'reject' && loggedUser !== 'admin@gmail.com'" class="rejected">Rejected</div>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <app-footer></app-footer>

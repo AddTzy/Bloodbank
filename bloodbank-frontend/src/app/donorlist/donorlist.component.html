@@ -1,0 +1,34 @@
+<app-header></app-header>
+
+<div class="row">
+  <div *ngFor="let donor of donors | async" id="bloodCards">
+    <div class="card mb-3" style="max-width: 500px;">
+      <div class="row">
+        <div class="col-md-2">
+          <img *ngIf="donor.gender === 'Male' || donor.gender === 'male'" class="bloodimg" [src]="'assets/img/male.png'"
+            width="120" height="120">
+          <img *ngIf="donor.gender === 'Female' || donor.gender === 'female'" class="bloodimg"
+            [src]="'assets/img/female.png'" width="120" height="120">
+        </div>
+        <div class="col-md-10">
+          <div class="card-body">
+            <div class="text"><b style="color: #0c355a;">Donor Name : </b><b class="element" style="margin-left: 20px;">
+                {{donor.name}}</b> </div>
+            <div class="text"><b style="color: #0c355a;">Blood Group : </b><b class="element"
+                style="color: red; margin-left: 18px;"> {{donor.bloodGroup}}</b> </div>
+            <div class="text"><b style="color: #0c355a;">Gender : </b><b class="element" style="margin-left: 64px;">
+                {{donor.gender}}</b> </div>
+            <div class="text"><b style="color: #0c355a;">Contact : </b><b class="element" style="margin-left: 56px;">
+                {{donor.mobile}}</b> </div>
+            <div class="text"><b style="color: #0c355a;">Age : </b><b class="element" style="margin-left: 96px;">
+                {{donor.age}} years</b> </div>
+            <div class="text"><b style="color: #0c355a;">Location : </b><b class="element" style="margin-left: 52px;">
+                {{donor.city}}</b> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

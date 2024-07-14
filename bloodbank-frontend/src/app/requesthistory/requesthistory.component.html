@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+  <div class="row">
+    <div class="panel-heading">
+      <h2 style="text-align: center; font-family: 'Oswald', sans-serif;color: #1977cc; margin-top: 3%; margin-bottom: 3%;">Incoming Requests</h2>
+    </div>
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Identity</th>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Disease</th>
+            <th>Blood Group</th>
+            <th>Required Units</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let history of requests">
+            <td><img *ngIf="history.gender === 'Male' || history.gender === 'male'" class="bloodimg" [src]="'assets/img/male.png'" width="80" height="80">
+              <img *ngIf="history.gender === 'Female' || history.gender === 'female'" class="bloodimg" [src]="'assets/img/female.png'" width="80" height="80">
+              </td>
+            <td>{{history.name}}</td>
+            <td>{{history.mobile}}</td>
+            <td>{{history.gender}}</td>
+            <td>{{history.age}} years</td>
+            <td style="color: navy;">{{history.disease}}</td>
+            <td style="color: red; font-size: 25px;">{{history.bloodgroup}}</td>
+            <td>{{history.units}} units</td>
+            <td>
+                <div>
+                  <button (click)="acceptRequest(history.id)" id="acceptbtn" value="history.email" value="Accept" style="margin-bottom: 5px;" class="accepted">Acknowledge</button>
+                  <button (click)="removeFromList(history)" id="rejectbtn" value="history.email" value="Reject" class="rejected">Ignore</button>
+                  <div id="acceptedbtn" class="accepted" style="display: none;">Acknowledged</div>
+                  <div id="rejectedbtn" class="rejected" style="display: none;">Ignored</div>
+                </div>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<app-footer></app-footer>

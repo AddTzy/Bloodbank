@@ -1,0 +1,31 @@
+.nav-item{
+    border: none;
+    background:transparent;
+    border-radius: 15px;
+    padding: 5px 5px 5px 5px;
+    font-size: small;
+  }
+  
+  .nav-item:hover{
+    cursor: pointer;
+    color: #fff;
+    background-color:#1977cc;
+    padding: 5px 5px 5px 5px;
+    border-radius: 15px;
+  }
+
+  .logoutbtn{
+    border: none;
+    background:transparent;
+    border-radius: 15px;
+    margin-left: 5px;
+    padding: 5px 5px 5px 5px;
+    font-size: small;
+  }
+  .logoutbtn:hover{
+    cursor: pointer;
+    color: #fff;
+    background-color:#1977cc;
+    padding: 5px 5px 5px 5px;
+    border-radius: 15px;
+  }
